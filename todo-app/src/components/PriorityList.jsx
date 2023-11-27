@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Typography, List, ListItem, ListItemText, Paper, Dialog, Grid, TextField } from "@mui/material";
+import { Typography, List, ListItem, ListItemText, Paper, Dialog, Grid, TextField, Checkbox } from "@mui/material";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { DataGrid } from "@mui/x-data-grid";
 import Button from "@mui/material/Button";
 import { removeTaskAction } from "../actions/taskActions";
 import { editPriorityTaskActions } from "../actions/priorityActions";
+import { completeTaskAction, moveToCompletedListAction } from "../actions/completeActions";
 
 
 export const PriorityList = () => {
@@ -49,23 +52,41 @@ export const PriorityList = () => {
   };
 
 
+  const completeTask = (id) => {
+    // your code here
+    // If the id matches, it creates a new task object using the spread operator ({ ...task}) to copy all existing properties of the task. It then updates the complete property with the negation (!) of the current value of the complete property. check the statement in reducer
+    dispatch(completeTaskAction(id));
+
+    dispatch(moveToCompletedListAction(id));
+  };
+
+
+
+
 
   return (
-    <Paper elevation={3} style={{ padding: '20px', margin: '20px', marginRight: '50px' }}>
+    <Paper
+      elevation={3}
+      style={{ padding: "20px", margin: "20px", marginRight: "50px" }}
+    >
       <Typography variant="h4" align="center" gutterBottom>
         Priority Tasks
       </Typography>
 
-      <List style={{ color: 'red' }}>
+      <List style={{ color: "red" }}>
         {priorityList.map((task) => (
           <ListItem key={task.id}>
+            <Checkbox
+              checked={task.complete}
+              onChange={() => completeTask(task.id)}
+            />
             <ListItemText primary={task.description} />
 
             <Button
               variant="contained"
               color="secondary"
               onClick={() => handleEditPriority(task.id)}
-              style={{ marginRight: '5px', marginLeft: '8px' }}
+              style={{ marginRight: "5px", marginLeft: "8px" }}
             >
               EDIT
             </Button>
@@ -83,7 +104,7 @@ export const PriorityList = () => {
 
       {/* Dialog for editing priority tasks */}
       <Dialog open={visible}>
-        <div style={{ padding: '20px' }}>
+        <div style={{ padding: "20px" }}>
           <Typography variant="h6" align="center" gutterBottom>
             EDIT Priority Task
           </Typography>
@@ -97,10 +118,20 @@ export const PriorityList = () => {
           />
         </div>
         <Grid container justifyContent="center">
-          <Button variant="contained" color="primary" onClick={handleSubmit} style={{ margin: '8px' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+            style={{ margin: "8px" }}
+          >
             Submit
           </Button>
-          <Button variant="contained" color="primary" onClick={closeDialog} style={{ margin: '8px' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={closeDialog}
+            style={{ margin: "8px" }}
+          >
             Cancel
           </Button>
         </Grid>

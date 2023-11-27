@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Typography, List, ListItem, ListItemText, Paper } from "@mui/material";
+import { Typography, List, ListItem, ListItemText, Paper, ListItemIcon } from "@mui/material";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Button from "@mui/material/Button";
 import { removeTaskAction } from "../actions/taskActions";
 
@@ -24,6 +25,9 @@ export const CompleteList = () => {
       <List>
         {completeList.map((task) => (
           <ListItem key={task.id}>
+            <ListItemIcon>
+                <CheckCircleOutlineIcon color="primary" />
+             </ListItemIcon>
             <ListItemText primary={task.description} />
 
             <Button

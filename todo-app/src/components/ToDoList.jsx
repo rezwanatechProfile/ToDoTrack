@@ -85,6 +85,10 @@ export const ToDoList = () => {
     setDescription(event.target.value);
   };
 
+
+
+// My code starts from here
+
   /**
    * @description handler function to set the selection state variable
    * @param {array} ids - array of IDs passed in from Grid select event
@@ -103,7 +107,6 @@ export const ToDoList = () => {
    */
   const handleSubmit = () => {
     // your code here
-
     if (mode === "ADD") {
       createTask();
     } else if (mode === "EDIT") {
@@ -124,6 +127,7 @@ export const ToDoList = () => {
       id: nanoid(),
       description,
       complete: false,
+			priority: false,
     };
     dispatch(addTask(newTask));
   };
@@ -136,7 +140,6 @@ export const ToDoList = () => {
    */
   const updateTask = () => {
     // your code here
-
     dispatch(editTask(selection[0].id, description));
   };
 
@@ -227,6 +230,8 @@ export const ToDoList = () => {
             <Button  variant="contained" color="primary" style={{ margin: "8px" }} onClick={closeDialog}>Cancel</Button>
           </div>
         </Dialog>
+
+
         {/* Main to do list */}
         <Paper
           elevation={3}

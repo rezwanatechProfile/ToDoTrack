@@ -62,6 +62,12 @@ const taskReducer = (state = initialState, action) => {
             ? { ...task, complete: !task.complete }
             : task
         ),
+
+        priorityList: state.priorityList.map((task) =>
+          task.id === action.payload
+            ? { ...task, complete: !task.complete }
+            : task
+        ),
       };
 
     // MOVE_TASK_TO_COMPLETE
@@ -69,6 +75,10 @@ const taskReducer = (state = initialState, action) => {
     case "MOVE_TO_COMPLETED_LIST":
       // Move the task to the completed list only if it's complete
       const taskToMove = state.taskList.find(
+        (task) => task.id === action.payload
+      );
+
+      const priorityTaskToMove = state.priorityList.find(
         (task) => task.id === action.payload
       );
       //  Checks if the task is found and if it's marked as complete.
@@ -82,6 +92,18 @@ const taskReducer = (state = initialState, action) => {
           completeList: [...state.completeList, taskToMove],
         };
       }
+
+      if (priorityTaskToMove && priorityTaskToMove.complete) {
+        return {
+          ...state,
+          // taskList: It filters out the task to be moved using state.taskList.filter.
+          priorityList: state.priorityList.filter((task) => task.id !== action.payload),
+
+          // completeList: It adds the found task to the completeList array.
+          completeList: [...state.completeList, priorityTaskToMove],
+        };
+      }
+
     // If the task is not found or is not marked as complete, it returns the current state (return state;). This is important to maintain the current state if the move operation is not valid.
 
     // PRIPRITY TASK REDUCERS
