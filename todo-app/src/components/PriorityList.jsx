@@ -62,12 +62,10 @@ export const PriorityList = () => {
 
 
 
-
-
   return (
     <Paper
       elevation={3}
-      style={{ padding: "20px", margin: "20px", marginRight: "50px" }}
+      style={{ padding: "20px", margin: "20px", marginRight: "20px" }}
     >
       <Typography variant="h4" align="center" gutterBottom>
         Priority Tasks
