@@ -205,7 +205,7 @@ export const ToDoList = () => {
 				<Checkbox checked={params.value} onChange={() => completeTask(params.id)} />
 			),
 		},
-
+// another field for priority list
 		{
 			field: "priority",
 			headerName: "Priority",
@@ -258,6 +258,7 @@ export const ToDoList = () => {
               variant="contained"
               color="secondary"
               onClick={handleEdit}
+							// if there is no selection or no list available make the button disable
               disabled={!selection[0] || tasks.length === 0}
               style={{ margin: "8px" }}
             >
