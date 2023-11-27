@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ToDoTrack/static/css/main.f2f12642.css",
+    "main.js": "/ToDoTrack/static/js/main.11ed4118.js",
+    "index.html": "/ToDoTrack/index.html",
+    "main.f2f12642.css.map": "/ToDoTrack/static/css/main.f2f12642.css.map",
+    "main.11ed4118.js.map": "/ToDoTrack/static/js/main.11ed4118.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2f12642.css",
+    "static/js/main.11ed4118.js"
+  ]
+}
