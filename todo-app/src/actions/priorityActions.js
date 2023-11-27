@@ -10,3 +10,10 @@ export const moveToPriorityListAction = (id) => ({
   type: "MOVE_TO_PRIORITY_LIST",
   payload: id,
 });
+
+
+// This action typically indicates that the task with the specified id should be edited with the new description.
+export const editPriorityTaskActions = (id, description) => ({
+  type: "EDIT_PRIORITY_TASK",
+  payload: { id, description },
+});

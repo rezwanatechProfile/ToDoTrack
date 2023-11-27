@@ -8,22 +8,24 @@ import { PriorityList } from "./components/PriorityList";
 import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
-	return (
-		<div className="App">
-			<ToDoList />
+  return (
+    <div className="App">
+      <Grid container spacing={1}>
+        {/* Centered top grid item */}
+        <Grid item xs={12} md={12} lg={12}>
+          <ToDoList />
+        </Grid>
 
-			<Grid container spacing={1}>
-      <Grid item xs={6}>
-        <CompleteList />
+        {/* Two grid items in a row for md and lg screen, two rows for small screen */}
+        <Grid item xs={12} md={6} lg={6}>
+          <CompleteList />
+        </Grid>
+        <Grid item xs={12} md={6} lg={6}>
+          <PriorityList />
+        </Grid>
       </Grid>
-      <Grid item xs={6}>
-        <PriorityList />
-      </Grid>
-    </Grid>
-
-
-		</div>
-	);
+    </div>
+  );
 }
 
 export default App;

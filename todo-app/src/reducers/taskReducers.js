@@ -44,8 +44,8 @@ const taskReducer = (state = initialState, action) => {
           (completeTask) => completeTask.id !== action.payload
         ),
 
-         // To remove cpriority Task
-         priorityList: state.priorityList.filter(
+        // To remove cpriority Task
+        priorityList: state.priorityList.filter(
           (priorityTask) => priorityTask.id !== action.payload
         ),
       };
@@ -112,6 +112,16 @@ const taskReducer = (state = initialState, action) => {
           priorityList: [...state.priorityList, priorityToMove],
         };
       }
+
+    case "EDIT_PRIORITY_TASK":
+      return {
+        ...state,
+        priorityList: state.priorityList.map((task) =>
+          task.id === action.payload.id
+            ? { ...task, description: action.payload.description }
+            : task
+        ),
+      };
 
     default:
       return state;
