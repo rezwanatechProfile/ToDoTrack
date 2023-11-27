@@ -29,7 +29,7 @@ Build a simple to-do list web app using React that includes the features:
 1. Add Completed list feature
 2. Add Priority checkbox and list feature
 3. Add Edit and delete buttons in priority feature
-4. Backend developemnt with node.js, express.js, MongoDB
+4. Backend developemnt with django framework
 
 #User Stories
 1. User will be able to add task
