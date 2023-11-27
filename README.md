@@ -10,17 +10,16 @@ Build a simple to-do list web app using React that includes the features:
 4. Remove a task from the to-do list.
 
 #Technological Stack:
-
 1.Frontend:
   React: A JavaScript library for building user interfaces. It's widely used for building single-page applications where you need a dynamic user interface.
-  Material-UI: A popular React UI framework that provides pre-built React components implementing Google's Material Design.
-2. State Management:
+  Material-UI: A popular React UI framework that provides pre-built React components implementing Google's Material Design
+2.State Management:
   Redux: A predictable state container for JavaScript apps. It helps manage the state of your application in a consistent way.
-3. Deployment:
+3.Deployment:
   GitHub Pages: For hosting your static React app.
-4. Package Management:
+4.Package Management:
   npm or Yarn: To manage dependencies and scripts.
-5. Version Control:
+5.Version Control:
   Git: For version control.
 
 #Wire Frames
@@ -30,6 +29,7 @@ Build a simple to-do list web app using React that includes the features:
 1. Add Completed list feature
 2. Add Priority checkbox and list feature
 3. Add Edit and delete buttons in priority feature
+4. Backend developemnt with node.js, express.js, MongoDB
 
 #User Stories
 1. User will be able to add task
@@ -41,11 +41,11 @@ Build a simple to-do list web app using React that includes the features:
 
 
 #MVP (Minimal Viable Product)
-Task List: Users should be able to view a list of tasks.
-Add Task: Users can add new tasks to the list.
-Edit Task: Users can edit the details of an existing task.
-Remove Task: Users can delete tasks they no longer need.
-Complete Task: Users can mark tasks as completed.
-Priority Indicator: Users can mark tasks as high priority.
-Simple User Interface: A clean and user-friendly interface to interact with the task list.
-Responsive Design: Ensure the application is usable on various devices and screen sizes.
+1. Task List: Users should be able to view a list of tasks.
+2. Add Task: Users can add new tasks to the list.
+3. Edit Task: Users can edit the details of an existing task.
+4. Remove Task: Users can delete tasks they no longer need.
+5. Complete Task: Users can mark tasks as completed.
+6. Priority Indicator: Users can mark tasks as high priority.
+7. Simple User Interface: A clean and user-friendly interface to interact with the task list.
+8. Responsive Design: Ensure the application is usable on various devices and screen sizes.
