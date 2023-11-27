@@ -22,7 +22,7 @@ Build a simple to-do list web app using React that includes the features:
 5. Version Control:
    Git: For version control.
 
-#Wire Frames
+#Wire Frame
 ![Screenshot 2023-11-26 223455](https://github.com/rezwanatechProfile/ToDoTrack/assets/120229816/6c260896-babd-460c-a82f-2a2761464429)
 
 #Stretch Goals:
