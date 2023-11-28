@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ToDoTrack/static/css/main.7a46be9d.css",
-    "main.js": "/ToDoTrack/static/js/main.9273ab2d.js",
+    "main.js": "/ToDoTrack/static/js/main.20ece76f.js",
     "index.html": "/ToDoTrack/index.html",
     "main.7a46be9d.css.map": "/ToDoTrack/static/css/main.7a46be9d.css.map",
-    "main.9273ab2d.js.map": "/ToDoTrack/static/js/main.9273ab2d.js.map"
+    "main.20ece76f.js.map": "/ToDoTrack/static/js/main.20ece76f.js.map"
   },
   "entrypoints": [
     "static/css/main.7a46be9d.css",
-    "static/js/main.9273ab2d.js"
+    "static/js/main.20ece76f.js"
   ]
 }
