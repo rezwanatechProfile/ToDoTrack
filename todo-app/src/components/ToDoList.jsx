@@ -5,13 +5,14 @@ import { nanoid } from 'nanoid';
 // import { taskList } from "./tasks";
 // material components
 import { DataGrid } from "@mui/x-data-grid";
-import { Button, Dialog, Paper, Typography, Checkbox } from "@mui/material";
+import { Button, Dialog, Paper, Typography, Checkbox, Grid } from "@mui/material";
 import { addTask, editTask, removeTaskAction } from "../actions/taskActions";
 import { completeTaskAction, moveToCompletedListAction } from "../actions/completeActions";
 import { priorityTaskAction, moveToPriorityListAction } from "../actions/priorityActions";
 
 
 export const ToDoList = () => {
+
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.task.taskList);
 
@@ -129,8 +130,22 @@ export const ToDoList = () => {
       complete: false,
 			priority: false,
     };
+
     dispatch(addTask(newTask));
   };
+
+
+  //  Previous Code 
+  // const createTask = () => {
+	// 	// your code here
+	// 	const newTask = {
+  //     id: tasks.length + 1,
+  //     description,
+  //     complete: false,
+  //   };
+  //   dispatch(addTask(newTask));
+	// };
+
 
   // UPDATE TASK FUNCTION
   /**
@@ -143,6 +158,7 @@ export const ToDoList = () => {
     dispatch(editTask(selection[0].id, description));
   };
 
+
   // REMOVE TASK
   /**
    * @description method to remove an existing task
@@ -152,6 +168,7 @@ export const ToDoList = () => {
   const removeTask = () => {
     // your code here
     dispatch(removeTaskAction(selection[0].id));
+    setSelection("")
   };
 
   // COMPLETE TASK FUNCTION
@@ -164,17 +181,21 @@ export const ToDoList = () => {
     // your code here
     // If the id matches, it creates a new task object using the spread operator ({ ...task}) to copy all existing properties of the task. It then updates the complete property with the negation (!) of the current value of the complete property. check the statement in reducer
     dispatch(completeTaskAction(id));
-
     dispatch(moveToCompletedListAction(id));
+    setSelection("")
   };
+
+
 
   const priorityTask = (id) => {
     // your code here
     // If the id matches, it creates a new task object using the spread operator ({ ...task}) to copy all existing properties of the task. It then updates the complete property with the negation (!) of the current value of the complete property. check the statement in reducer
     dispatch(priorityTaskAction(id));
-
     dispatch(moveToPriorityListAction(id));
+    setSelection("")
   };
+
+
 
   // the Data grid columns - the renderCell will replace a cell's text with a React component - in this case a checkbox
   const columns = [
@@ -184,28 +205,43 @@ export const ToDoList = () => {
       headerName: "Complete",
       flex: 0.3,
       renderCell: (params) => (
-        <Checkbox
-          checked={params.value}
-          onChange={() => completeTask(params.id)}
-        />
+        <Grid container alignItems="center" spacing={1}>
+          <Grid item xs={12} md={8} lg={8}>
+            <Checkbox
+              checked={params.value}
+              onChange={() => completeTask(params.id)}
+            />
+          </Grid>
+        </Grid>
       ),
     },
+
     // another field for priority list
     {
       field: "priority",
       headerName: "Priority",
       flex: 0.3,
       renderCell: (params) => (
-        <Checkbox
-          checked={params.value}
-          onChange={() => priorityTask(params.id)}
-          disabled={params.row.complete}
-        />
+        <Grid container alignItems="center" spacing={1}>
+          <Grid item xs={12} md={8} lg={8}>
+            <Checkbox
+              checked={params.value}
+              onChange={() => priorityTask(params.id)}
+              disabled={params.row.complete}
+            />
+          </Grid>
+        </Grid>
       ),
       headerClassName: "bold-header",
     },
   ];
 
+  // Add the following style to make header names visible in mobile screens
+  const boldHeaderStyle = {
+    "@media (max-width: 600px)": {
+      display: "block",
+    },
+  };
   return (
     <div>
       <Typography
@@ -244,6 +280,7 @@ export const ToDoList = () => {
           }}
         >
           <div className="d-flex flex-column align-items-center">
+
             {tasks.length === 0 ? (
               <p>Add Your Todo List</p>
             ) : (
@@ -266,6 +303,7 @@ export const ToDoList = () => {
               >
                 Add
               </Button>
+
               <Button
                 variant="contained"
                 color="secondary"
@@ -276,6 +314,7 @@ export const ToDoList = () => {
               >
                 Edit
               </Button>
+
               <Button
                 variant="contained"
                 color="error"

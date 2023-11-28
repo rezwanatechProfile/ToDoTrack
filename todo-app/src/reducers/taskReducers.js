@@ -14,7 +14,9 @@ const initialState = {
 // two parameters: state (current state) and action (the dispatched action).
 
 const taskReducer = (state = initialState, action) => {
-// Switch statement to handle different action type
+
+
+  // Switch statement to handle different action type
   switch (action.type) {
     case "ADD_TASK":
       return {

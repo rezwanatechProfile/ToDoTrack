@@ -10,10 +10,6 @@ export const CompleteList = () => {
   const completeList = useSelector((state) => state.task.completeList);
   const dispatch = useDispatch();
 
-  const removeTask = (id) => {
-    // your code here
-    dispatch(removeTaskAction(id));
-  };
 
   return (
     <Paper elevation={3} style={{ padding: "20px", margin: "20px" }}>

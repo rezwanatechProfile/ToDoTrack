@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Typography, List, ListItem, ListItemText, Paper, Dialog, Grid, TextField, Checkbox } from "@mui/material";
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import { DataGrid } from "@mui/x-data-grid";
 import Button from "@mui/material/Button";
 import { removeTaskAction } from "../actions/taskActions";
 import { editPriorityTaskActions } from "../actions/priorityActions";
@@ -70,7 +68,6 @@ export const PriorityList = () => {
       <Typography variant="h4" align="center" gutterBottom>
         Priority Tasks
       </Typography>
-
       <List style={{ color: "red" }}>
         {priorityList.map((task) => (
           <ListItem key={task.id}>
@@ -78,8 +75,7 @@ export const PriorityList = () => {
               checked={task.complete}
               onChange={() => completeTask(task.id)}
             />
-            <ListItemText primary={task.description} />
-
+            <ListItemText primary={task.description} style={{ display: "flex" }}/>
             <Button
               variant="contained"
               color="secondary"
@@ -99,6 +95,7 @@ export const PriorityList = () => {
           </ListItem>
         ))}
       </List>
+
 
       {/* Dialog for editing priority tasks */}
       <Dialog open={visible}>
